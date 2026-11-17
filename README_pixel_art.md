@@ -50,5 +50,5 @@ Chạy lại bất cứ lúc nào: `python tools/pixelize.py` (nguồn: `assets/
 ```bash
 python -m http.server 8003          # phục vụ thư mục
 python tools/verify_visual.py       # 89/89 sprite đúng size, 0 lỗi console, chân đặt đúng grid
-python test_suite_all.py            # 12/12 hạng mục gameplay PASS
+python tests/test_suite_all.py       # 12/12 hạng mục gameplay PASS
 ```

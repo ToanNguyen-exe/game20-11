@@ -1,6 +1,9 @@
 from playwright.sync_api import sync_playwright
 import time
 
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 edge_path = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 
 with sync_playwright() as p:
@@ -30,21 +33,21 @@ with sync_playwright() as p:
     time.sleep(1)
     
     # Take screenshot of Stage 1 gameplay
-    page.screenshot(path=r'C:\Users\mcmap\.gemini\antigravity\scratch\code-quest-mario\gameplay_stage1.png')
+    page.screenshot(path=str(ROOT / 'screenshots' / 'gameplay_stage1.png'))
     print("Saved gameplay_stage1.png")
     
     # Test Stage 2
     print("Switching to Stage 2...")
     page.click('.stage-select-btn[data-stage="2"]')
     time.sleep(1)
-    page.screenshot(path=r'C:\Users\mcmap\.gemini\antigravity\scratch\code-quest-mario\gameplay_stage2.png')
+    page.screenshot(path=str(ROOT / 'screenshots' / 'gameplay_stage2.png'))
     print("Saved gameplay_stage2.png")
     
     # Test Stage 3
     print("Switching to Stage 3...")
     page.click('.stage-select-btn[data-stage="3"]')
     time.sleep(1)
-    page.screenshot(path=r'C:\Users\mcmap\.gemini\antigravity\scratch\code-quest-mario\gameplay_stage3.png')
+    page.screenshot(path=str(ROOT / 'screenshots' / 'gameplay_stage3.png'))
     print("Saved gameplay_stage3.png")
     
     browser.close()

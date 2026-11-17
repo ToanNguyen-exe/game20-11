@@ -1,7 +1,10 @@
 import urllib.request
 import re
 
-with open(r'C:\Users\mcmap\.gemini\antigravity\scratch\code-quest-mario\game.js', encoding='utf-8') as f:
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
+with open(str(ROOT / 'game.js'), encoding='utf-8') as f:
     code = f.read()
 
 # Extract all assets/sprites/... paths

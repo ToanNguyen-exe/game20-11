@@ -5,6 +5,28 @@ Tựa game 2D Platformer phong cách Super Mario kinh điển xây dựng bằng
 
 ---
 
+## 🗂️ Cấu Trúc Dự Án
+
+```
+code-quest-mario/
+├── index.html          # Giao diện Tailwind + Lucide + confetti
+├── game.js             # Toàn bộ engine: config, atlas, audio, 3 stage builder, render, loop
+├── README.md           # Tài liệu này
+├── README_pixel_art.md # Pipeline pixel hoá sprite
+├── assets/             # 89 sprite PNG + atlas_v2.json
+├── tests/              # 11 script kiểm thử (Playwright + phân tích ảnh)
+├── tools/              # verify_visual, verify_lava, pixelize, playthrough_bot
+├── dev/
+│   ├── asset-pipeline/ # Script sinh atlas, clamp viền tile, map asset
+│   ├── inspect/        # Script soi slice/block/edge
+│   └── backup/         # game.js.stagebuilders.bak
+└── screenshots/        # Ảnh nghiệm thu (gitignored)
+```
+
+Chạy game: `python -m http.server 8003` rồi mở http://127.0.0.1:8003/
+
+---
+
 ## 📁 Cấu Trúc Thư Mục Texture Atlas
 
 ```

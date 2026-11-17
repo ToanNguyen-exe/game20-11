@@ -2,6 +2,9 @@ import time
 import sys
 from playwright.sync_api import sync_playwright
 
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 edge_path = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 
 def run_tests():
@@ -292,7 +295,7 @@ def run_tests():
         print("  -> PASS: Nhạc nền 8-bit Mario tổng hợp bằng Web Audio chuẩn xác!")
         
         # Chụp ảnh bằng chứng nghiệm thu
-        page.screenshot(path=r'C:\Users\mcmap\.gemini\antigravity\scratch\code-quest-mario\verification_full_pass.png')
+        page.screenshot(path=str(ROOT / 'screenshots' / 'verification_full_pass.png'))
         print("\n📸 Đã chụp ảnh nghiệm thu: verification_full_pass.png")
         
         browser.close()

@@ -1,6 +1,9 @@
 from PIL import Image
 import numpy as np
 
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+
 # Let's write a function to normalize a block into a seamless square tile
 def normalize_block(im, target_size=(64, 64), crop_margin=3):
     # If the image has transparent or fuzzy borders on the edge,
@@ -31,5 +34,5 @@ for i in range(3):
     test_grid.paste(norm_grass, (i * 64, 0))
     test_grid.paste(norm_dirt, (i * 64, 64))
 
-test_grid.save(r'C:\Users\mcmap\.gemini\antigravity\scratch\code-quest-mario\test_seamless_grid.png')
+test_grid.save(str(ROOT / 'screenshots' / 'test_seamless_grid.png'))
 print("Successfully generated test_seamless_grid.png!")
