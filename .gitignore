@@ -1,0 +1,17 @@
+# Ảnh chụp nghiệm thu tạm (không cần đưa lên repo)
+aa_*.png
+chap_stage*.png
+fix_stage*.png
+fest_*.png
+verify_banner*.png
+_probe.png
+
+# Log và cache
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Thư mục nguồn sprite thô (nặng, chỉ dùng khi build lại atlas)
+assets/_source_sprites/

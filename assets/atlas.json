@@ -1,0 +1,1515 @@
+{
+  "meta": {
+    "app": "CodeQuest-SpriteAtlas",
+    "version": "2.0",
+    "target": "HTML5 Canvas",
+    "tile_size": 40,
+    "format": "RGBA8888",
+    "author": "CodeGym 20/11 Competition"
+  },
+  "frames": {
+    "player_idle": {
+      "category": "player",
+      "file": "assets/sprites/player/player_idle.png",
+      "flat_file": "assets/sprites/player_idle.png",
+      "width": 79,
+      "height": 107,
+      "source_x": 31,
+      "source_y": 418,
+      "source_w": 79,
+      "source_h": 107,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player standing/idle frame"
+    },
+    "player_run": {
+      "category": "player",
+      "file": "assets/sprites/player/player_run.png",
+      "flat_file": "assets/sprites/player_run.png",
+      "width": 77,
+      "height": 100,
+      "source_x": 142,
+      "source_y": 421,
+      "source_w": 77,
+      "source_h": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player running frame 1"
+    },
+    "player_jump": {
+      "category": "player",
+      "file": "assets/sprites/player/player_jump.png",
+      "flat_file": "assets/sprites/player_jump.png",
+      "width": 87,
+      "height": 99,
+      "source_x": 250,
+      "source_y": 406,
+      "source_w": 87,
+      "source_h": 99,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player jump ascending"
+    },
+    "player_fall": {
+      "category": "player",
+      "file": "assets/sprites/player/player_fall.png",
+      "flat_file": "assets/sprites/player_fall.png",
+      "width": 71,
+      "height": 109,
+      "source_x": 363,
+      "source_y": 407,
+      "source_w": 71,
+      "source_h": 109,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player falling descending"
+    },
+    "player_hurt": {
+      "category": "player",
+      "file": "assets/sprites/player/player_hurt.png",
+      "flat_file": "assets/sprites/player_hurt.png",
+      "width": 94,
+      "height": 95,
+      "source_x": 461,
+      "source_y": 424,
+      "source_w": 94,
+      "source_h": 95,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player hurt/taking damage"
+    },
+    "player_die": {
+      "category": "player",
+      "file": "assets/sprites/player/player_die.png",
+      "flat_file": "assets/sprites/player_die.png",
+      "width": 102,
+      "height": 58,
+      "source_x": 573,
+      "source_y": 462,
+      "source_w": 102,
+      "source_h": 58,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player defeated/die frame"
+    },
+    "player_attack": {
+      "category": "player",
+      "file": "assets/sprites/player/player_attack.png",
+      "flat_file": "assets/sprites/player_attack.png",
+      "width": 91,
+      "height": 107,
+      "source_x": 260,
+      "source_y": 558,
+      "source_w": 91,
+      "source_h": 107,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player melee/spell attack"
+    },
+    "player_shoot": {
+      "category": "player",
+      "file": "assets/sprites/player/player_shoot.png",
+      "flat_file": "assets/sprites/player_shoot.png",
+      "width": 112,
+      "height": 83,
+      "source_x": 365,
+      "source_y": 585,
+      "source_w": 112,
+      "source_h": 83,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player code projectile shoot"
+    },
+    "player_slide": {
+      "category": "player",
+      "file": "assets/sprites/player/player_slide.png",
+      "flat_file": "assets/sprites/player_slide.png",
+      "width": 121,
+      "height": 84,
+      "source_x": 563,
+      "source_y": 583,
+      "source_w": 121,
+      "source_h": 84,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Player slide/crouch"
+    },
+    "enemy_goomba": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_goomba.png",
+      "flat_file": "assets/sprites/enemy_goomba.png",
+      "width": 70,
+      "height": 71,
+      "source_x": 1222,
+      "source_y": 65,
+      "source_w": 70,
+      "source_h": 71,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Brown mushroom walker (Goomba)"
+    },
+    "enemy_red_bug": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_red_bug.png",
+      "flat_file": "assets/sprites/enemy_red_bug.png",
+      "width": 67,
+      "height": 59,
+      "source_x": 1314,
+      "source_y": 75,
+      "source_w": 67,
+      "source_h": 59,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Red angry bug beetle"
+    },
+    "enemy_turtle": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_turtle.png",
+      "flat_file": "assets/sprites/enemy_turtle.png",
+      "width": 76,
+      "height": 71,
+      "source_x": 1402,
+      "source_y": 65,
+      "source_w": 76,
+      "source_h": 71,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Green shelled turtle (Koopa)"
+    },
+    "enemy_spiny": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_spiny.png",
+      "flat_file": "assets/sprites/enemy_spiny.png",
+      "width": 75,
+      "height": 65,
+      "source_x": 1493,
+      "source_y": 71,
+      "source_w": 75,
+      "source_h": 65,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Spiny purple beetle with spikes"
+    },
+    "enemy_ghost": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_ghost.png",
+      "flat_file": "assets/sprites/enemy_ghost.png",
+      "width": 79,
+      "height": 70,
+      "source_x": 1583,
+      "source_y": 64,
+      "source_w": 79,
+      "source_h": 70,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Floating white ghost (Boo)"
+    },
+    "enemy_bat": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_bat.png",
+      "flat_file": "assets/sprites/enemy_bat.png",
+      "width": 96,
+      "height": 55,
+      "source_x": 1214,
+      "source_y": 173,
+      "source_w": 96,
+      "source_h": 55,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Flying purple bat"
+    },
+    "enemy_crab": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_crab.png",
+      "flat_file": "assets/sprites/enemy_crab.png",
+      "width": 86,
+      "height": 54,
+      "source_x": 1308,
+      "source_y": 182,
+      "source_w": 86,
+      "source_h": 54,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Red crawling crab"
+    },
+    "enemy_piranha": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_piranha.png",
+      "flat_file": "assets/sprites/enemy_piranha.png",
+      "width": 62,
+      "height": 86,
+      "source_x": 1414,
+      "source_y": 163,
+      "source_w": 62,
+      "source_h": 86,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Piranha plant in pipe"
+    },
+    "enemy_mage": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_mage.png",
+      "flat_file": "assets/sprites/enemy_mage.png",
+      "width": 82,
+      "height": 79,
+      "source_x": 1495,
+      "source_y": 163,
+      "source_w": 82,
+      "source_h": 79,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Dark wizard mage with staff"
+    },
+    "enemy_spike_ball": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_spike_ball.png",
+      "flat_file": "assets/sprites/enemy_spike_ball.png",
+      "width": 63,
+      "height": 63,
+      "source_x": 1592,
+      "source_y": 178,
+      "source_w": 63,
+      "source_h": 63,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Floating spike iron ball"
+    },
+    "enemy_slime_green": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_slime_green.png",
+      "flat_file": "assets/sprites/enemy_slime_green.png",
+      "width": 77,
+      "height": 64,
+      "source_x": 1222,
+      "source_y": 285,
+      "source_w": 77,
+      "source_h": 64,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Bouncing green slime"
+    },
+    "enemy_slime_purple": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_slime_purple.png",
+      "flat_file": "assets/sprites/enemy_slime_purple.png",
+      "width": 74,
+      "height": 60,
+      "source_x": 1313,
+      "source_y": 290,
+      "source_w": 74,
+      "source_h": 60,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Bouncing purple slime"
+    },
+    "enemy_skeleton": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_skeleton.png",
+      "flat_file": "assets/sprites/enemy_skeleton.png",
+      "width": 69,
+      "height": 86,
+      "source_x": 1406,
+      "source_y": 266,
+      "source_w": 69,
+      "source_h": 86,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Walking bone skeleton"
+    },
+    "enemy_fish": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_fish.png",
+      "flat_file": "assets/sprites/enemy_fish.png",
+      "width": 70,
+      "height": 61,
+      "source_x": 1496,
+      "source_y": 282,
+      "source_w": 70,
+      "source_h": 61,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Leaping red fish"
+    },
+    "enemy_thwomp": {
+      "category": "enemies",
+      "file": "assets/sprites/enemies/enemy_thwomp.png",
+      "flat_file": "assets/sprites/enemy_thwomp.png",
+      "width": 76,
+      "height": 93,
+      "source_x": 1584,
+      "source_y": 263,
+      "source_w": 76,
+      "source_h": 93,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Crushing stone thwomp block"
+    },
+    "buff_shield": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_shield.png",
+      "flat_file": "assets/sprites/buff_shield.png",
+      "width": 56,
+      "height": 64,
+      "source_x": 903,
+      "source_y": 210,
+      "source_w": 56,
+      "source_h": 64,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Invulnerability shield buff"
+    },
+    "buff_boots": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_boots.png",
+      "flat_file": "assets/sprites/buff_boots.png",
+      "width": 62,
+      "height": 57,
+      "source_x": 980,
+      "source_y": 212,
+      "source_w": 62,
+      "source_h": 57,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Speed boots buff"
+    },
+    "buff_star": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_star.png",
+      "flat_file": "assets/sprites/buff_star.png",
+      "width": 52,
+      "height": 53,
+      "source_x": 805,
+      "source_y": 58,
+      "source_w": 52,
+      "source_h": 53,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Super star invincibility buff"
+    },
+    "buff_star_2x": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_star_2x.png",
+      "flat_file": "assets/sprites/buff_star_2x.png",
+      "width": 62,
+      "height": 62,
+      "source_x": 740,
+      "source_y": 207,
+      "source_w": 62,
+      "source_h": 62,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "2X multiplier star buff"
+    },
+    "buff_heart": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_heart.png",
+      "flat_file": "assets/sprites/buff_heart.png",
+      "width": 45,
+      "height": 42,
+      "source_x": 939,
+      "source_y": 64,
+      "source_w": 45,
+      "source_h": 42,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Health recovery heart"
+    },
+    "buff_heart_container": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_heart_container.png",
+      "flat_file": "assets/sprites/buff_heart_container.png",
+      "width": 50,
+      "height": 52,
+      "source_x": 998,
+      "source_y": 59,
+      "source_w": 50,
+      "source_h": 52,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Max health container upgrade"
+    },
+    "buff_mushroom": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_mushroom.png",
+      "flat_file": "assets/sprites/buff_mushroom.png",
+      "width": 57,
+      "height": 57,
+      "source_x": 1063,
+      "source_y": 57,
+      "source_w": 57,
+      "source_h": 57,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Super growth red mushroom"
+    },
+    "buff_flower": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_flower.png",
+      "flat_file": "assets/sprites/buff_flower.png",
+      "width": 53,
+      "height": 57,
+      "source_x": 1137,
+      "source_y": 58,
+      "source_w": 53,
+      "source_h": 57,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Fire flower shooting buff"
+    },
+    "buff_potion": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_potion.png",
+      "flat_file": "assets/sprites/buff_potion.png",
+      "width": 55,
+      "height": 71,
+      "source_x": 905,
+      "source_y": 125,
+      "source_w": 55,
+      "source_h": 71,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Magic energy mana potion"
+    },
+    "buff_magnet": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_magnet.png",
+      "flat_file": "assets/sprites/buff_magnet.png",
+      "width": 52,
+      "height": 58,
+      "source_x": 1066,
+      "source_y": 215,
+      "source_w": 52,
+      "source_h": 58,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Coin magnet buff"
+    },
+    "buff_clock": {
+      "category": "buffs",
+      "file": "assets/sprites/buffs/buff_clock.png",
+      "flat_file": "assets/sprites/buff_clock.png",
+      "width": 55,
+      "height": 64,
+      "source_x": 1137,
+      "source_y": 205,
+      "source_w": 55,
+      "source_h": 64,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Time slow clock buff"
+    },
+    "item_coin": {
+      "category": "items",
+      "file": "assets/sprites/items/item_coin.png",
+      "flat_file": "assets/sprites/item_coin.png",
+      "width": 46,
+      "height": 55,
+      "source_x": 741,
+      "source_y": 57,
+      "source_w": 46,
+      "source_h": 55,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Gold collectible coin"
+    },
+    "item_diamond": {
+      "category": "items",
+      "file": "assets/sprites/items/item_diamond.png",
+      "flat_file": "assets/sprites/item_diamond.png",
+      "width": 50,
+      "height": 46,
+      "source_x": 873,
+      "source_y": 63,
+      "source_w": 50,
+      "source_h": 46,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Blue diamond gem"
+    },
+    "item_key": {
+      "category": "items",
+      "file": "assets/sprites/items/item_key.png",
+      "flat_file": "assets/sprites/item_key.png",
+      "width": 39,
+      "height": 66,
+      "source_x": 993,
+      "source_y": 127,
+      "source_w": 39,
+      "source_h": 66,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Golden castle door key"
+    },
+    "item_code_scroll": {
+      "category": "items",
+      "file": "assets/sprites/items/item_code_scroll.png",
+      "flat_file": "assets/sprites/item_code_scroll.png",
+      "width": 57,
+      "height": 68,
+      "source_x": 739,
+      "source_y": 124,
+      "source_w": 57,
+      "source_h": 68,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Ancient code scroll parchment"
+    },
+    "item_code_book": {
+      "category": "items",
+      "file": "assets/sprites/items/item_code_book.png",
+      "flat_file": "assets/sprites/item_code_book.png",
+      "width": 62,
+      "height": 65,
+      "source_x": 818,
+      "source_y": 127,
+      "source_w": 62,
+      "source_h": 65,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Clean Code programming book"
+    },
+    "item_checkpoint": {
+      "category": "items",
+      "file": "assets/sprites/items/item_checkpoint.png",
+      "flat_file": "assets/sprites/item_checkpoint.png",
+      "width": 58,
+      "height": 69,
+      "source_x": 1060,
+      "source_y": 127,
+      "source_w": 58,
+      "source_h": 69,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Checkered checkpoint flag"
+    },
+    "item_orb": {
+      "category": "items",
+      "file": "assets/sprites/items/item_orb.png",
+      "flat_file": "assets/sprites/item_orb.png",
+      "width": 78,
+      "height": 73,
+      "source_x": 1056,
+      "source_y": 281,
+      "source_w": 78,
+      "source_h": 73,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Mystic glowing skill orb"
+    },
+    "grass": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/grass.png",
+      "flat_file": "assets/sprites/grass.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 13,
+      "source_y": 48,
+      "source_w": 68,
+      "source_h": 74,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Green surface grass tile"
+    },
+    "dirt": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/dirt.png",
+      "flat_file": "assets/sprites/dirt.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 165,
+      "source_y": 48,
+      "source_w": 77,
+      "source_h": 74,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Underground dirt block"
+    },
+    "dirt_grass": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/dirt_grass.png",
+      "flat_file": "assets/sprites/dirt_grass.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 81,
+      "source_y": 48,
+      "source_w": 84,
+      "source_h": 74,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Dirt with grass edge block"
+    },
+    "stone": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/stone.png",
+      "flat_file": "assets/sprites/stone.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 250,
+      "source_y": 44,
+      "source_w": 74,
+      "source_h": 71,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Dungeon castle grey stone block"
+    },
+    "ice": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/ice.png",
+      "flat_file": "assets/sprites/ice.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 324,
+      "source_y": 44,
+      "source_w": 86,
+      "source_h": 78,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Slippery blue ice block"
+    },
+    "brick": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/brick.png",
+      "flat_file": "assets/sprites/brick.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 410,
+      "source_y": 44,
+      "source_w": 67,
+      "source_h": 67,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Breakable brown brick block"
+    },
+    "question_block": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/question_block.png",
+      "flat_file": "assets/sprites/question_block.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 485,
+      "source_y": 44,
+      "source_w": 71,
+      "source_h": 69,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Yellow question prize block"
+    },
+    "exclamation_block": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/exclamation_block.png",
+      "flat_file": "assets/sprites/exclamation_block.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 562,
+      "source_y": 44,
+      "source_w": 67,
+      "source_h": 69,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Red exclamation trigger block"
+    },
+    "coin_box": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/coin_box.png",
+      "flat_file": "assets/sprites/coin_box.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 636,
+      "source_y": 44,
+      "source_w": 69,
+      "source_h": 69,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Gold coin vault block"
+    },
+    "wood_crate": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/wood_crate.png",
+      "flat_file": "assets/sprites/wood_crate.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 562,
+      "source_y": 122,
+      "source_w": 67,
+      "source_h": 74,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Wooden storage crate block"
+    },
+    "wood_plank": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/wood_plank.png",
+      "flat_file": "assets/sprites/wood_plank.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 636,
+      "source_y": 123,
+      "source_w": 69,
+      "source_h": 73,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Wooden bridge plank block"
+    },
+    "metal_block": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/metal_block.png",
+      "flat_file": "assets/sprites/metal_block.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 490,
+      "source_y": 123,
+      "source_w": 66,
+      "source_h": 73,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Solid metal riveted block"
+    },
+    "pipe_green": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/pipe_green.png",
+      "flat_file": "assets/sprites/pipe_green.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 337,
+      "source_y": 123,
+      "source_w": 65,
+      "source_h": 73,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Green warp pipe entrance"
+    },
+    "pipe_red": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/pipe_red.png",
+      "flat_file": "assets/sprites/pipe_red.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 412,
+      "source_y": 114,
+      "source_w": 70,
+      "source_h": 82,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Red warp pipe"
+    },
+    "ladder": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/ladder.png",
+      "flat_file": "assets/sprites/ladder.png",
+      "width": 60,
+      "height": 106,
+      "source_x": 1093,
+      "source_y": 401,
+      "source_w": 60,
+      "source_h": 106,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Climbable wooden ladder"
+    },
+    "lava": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/lava.png",
+      "flat_file": "assets/sprites/lava.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 485,
+      "source_y": 281,
+      "source_w": 72,
+      "source_h": 72,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Dangerous glowing red lava surface"
+    },
+    "fire": {
+      "category": "tiles",
+      "file": "assets/sprites/tiles/fire.png",
+      "flat_file": "assets/sprites/fire.png",
+      "width": 64,
+      "height": 64,
+      "source_x": 566,
+      "source_y": 280,
+      "source_w": 64,
+      "source_h": 73,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Underground magma fire block"
+    },
+    "prop_flag": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_flag.png",
+      "flat_file": "assets/sprites/prop_flag.png",
+      "width": 63,
+      "height": 99,
+      "source_x": 711,
+      "source_y": 497,
+      "source_w": 63,
+      "source_h": 99,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Stage finish flagpole banner"
+    },
+    "prop_door_wood": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_door_wood.png",
+      "flat_file": "assets/sprites/prop_door_wood.png",
+      "width": 82,
+      "height": 93,
+      "source_x": 794,
+      "source_y": 502,
+      "source_w": 82,
+      "source_h": 93,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Dungeon wooden stage exit door"
+    },
+    "prop_door_locked": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_door_locked.png",
+      "flat_file": "assets/sprites/prop_door_locked.png",
+      "width": 78,
+      "height": 88,
+      "source_x": 893,
+      "source_y": 507,
+      "source_w": 78,
+      "source_h": 88,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Locked castle iron door"
+    },
+    "prop_portal": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_portal.png",
+      "flat_file": "assets/sprites/prop_portal.png",
+      "width": 94,
+      "height": 104,
+      "source_x": 986,
+      "source_y": 503,
+      "source_w": 94,
+      "source_h": 104,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Mystic teleportation vortex portal"
+    },
+    "prop_chest": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_chest.png",
+      "flat_file": "assets/sprites/prop_chest.png",
+      "width": 77,
+      "height": 79,
+      "source_x": 1102,
+      "source_y": 524,
+      "source_w": 77,
+      "source_h": 79,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Gold graduation treasure chest"
+    },
+    "prop_tree": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_tree.png",
+      "flat_file": "assets/sprites/prop_tree.png",
+      "width": 85,
+      "height": 95,
+      "source_x": 776,
+      "source_y": 605,
+      "source_w": 85,
+      "source_h": 95,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Green pixel art oak tree"
+    },
+    "prop_bush": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_bush.png",
+      "flat_file": "assets/sprites/prop_bush.png",
+      "width": 72,
+      "height": 55,
+      "source_x": 867,
+      "source_y": 645,
+      "source_w": 72,
+      "source_h": 55,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Green decorative grass bush"
+    },
+    "prop_flower": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_flower.png",
+      "flat_file": "assets/sprites/prop_flower.png",
+      "width": 38,
+      "height": 56,
+      "source_x": 953,
+      "source_y": 641,
+      "source_w": 38,
+      "source_h": 56,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Red countryside wild flower"
+    },
+    "prop_cactus": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_cactus.png",
+      "flat_file": "assets/sprites/prop_cactus.png",
+      "width": 52,
+      "height": 79,
+      "source_x": 1001,
+      "source_y": 621,
+      "source_w": 52,
+      "source_h": 79,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Desert green spiked cactus"
+    },
+    "prop_fence": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_fence.png",
+      "flat_file": "assets/sprites/prop_fence.png",
+      "width": 69,
+      "height": 51,
+      "source_x": 1061,
+      "source_y": 637,
+      "source_w": 69,
+      "source_h": 51,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Wooden boundary fence"
+    },
+    "prop_sign": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_sign.png",
+      "flat_file": "assets/sprites/prop_sign.png",
+      "width": 79,
+      "height": 79,
+      "source_x": 993,
+      "source_y": 410,
+      "source_w": 79,
+      "source_h": 79,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Wooden direction road sign"
+    },
+    "prop_crate": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_crate.png",
+      "flat_file": "assets/sprites/prop_crate.png",
+      "width": 71,
+      "height": 72,
+      "source_x": 714,
+      "source_y": 413,
+      "source_w": 71,
+      "source_h": 72,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Wooden prop crate"
+    },
+    "prop_barrel": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_barrel.png",
+      "flat_file": "assets/sprites/prop_barrel.png",
+      "width": 64,
+      "height": 78,
+      "source_x": 808,
+      "source_y": 408,
+      "source_w": 64,
+      "source_h": 78,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Wooden wine barrel prop"
+    },
+    "prop_tnt": {
+      "category": "objects",
+      "file": "assets/sprites/objects/prop_tnt.png",
+      "flat_file": "assets/sprites/prop_tnt.png",
+      "width": 68,
+      "height": 74,
+      "source_x": 898,
+      "source_y": 411,
+      "source_w": 68,
+      "source_h": 74,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Explosive red TNT barrel"
+    },
+    "trigger_platform": {
+      "category": "triggers",
+      "file": "assets/sprites/triggers/trigger_platform.png",
+      "flat_file": "assets/sprites/trigger_platform.png",
+      "width": 124,
+      "height": 60,
+      "source_x": 1334,
+      "source_y": 421,
+      "source_w": 124,
+      "source_h": 60,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Moving silver stone platform"
+    },
+    "trigger_spring": {
+      "category": "triggers",
+      "file": "assets/sprites/triggers/trigger_spring.png",
+      "flat_file": "assets/sprites/trigger_spring.png",
+      "width": 56,
+      "height": 63,
+      "source_x": 1487,
+      "source_y": 424,
+      "source_w": 56,
+      "source_h": 63,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "High-jump bounce spring pad"
+    },
+    "trigger_btn_red": {
+      "category": "triggers",
+      "file": "assets/sprites/triggers/trigger_btn_red.png",
+      "flat_file": "assets/sprites/trigger_btn_red.png",
+      "width": 77,
+      "height": 54,
+      "source_x": 1575,
+      "source_y": 426,
+      "source_w": 77,
+      "source_h": 54,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Floor push button trigger"
+    },
+    "trigger_platform_gold": {
+      "category": "triggers",
+      "file": "assets/sprites/triggers/trigger_platform_gold.png",
+      "flat_file": "assets/sprites/trigger_platform_gold.png",
+      "width": 166,
+      "height": 71,
+      "source_x": 1399,
+      "source_y": 606,
+      "source_w": 166,
+      "source_h": 71,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Floating golden cloud platform"
+    },
+    "trigger_saw": {
+      "category": "triggers",
+      "file": "assets/sprites/triggers/trigger_saw.png",
+      "flat_file": "assets/sprites/trigger_saw.png",
+      "width": 57,
+      "height": 67,
+      "source_x": 1592,
+      "source_y": 610,
+      "source_w": 57,
+      "source_h": 67,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Spinning mechanical buzzsaw blade"
+    },
+    "trigger_spikes": {
+      "category": "triggers",
+      "file": "assets/sprites/triggers/trigger_spikes.png",
+      "flat_file": "assets/sprites/trigger_spikes.png",
+      "width": 72,
+      "height": 55,
+      "source_x": 867,
+      "source_y": 645,
+      "source_w": 72,
+      "source_h": 55,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Dangerous ground iron spikes"
+    },
+    "effect_bullet": {
+      "category": "effects",
+      "file": "assets/sprites/effects/effect_bullet.png",
+      "flat_file": "assets/sprites/effect_bullet.png",
+      "width": 50,
+      "height": 42,
+      "source_x": 81,
+      "source_y": 749,
+      "source_w": 50,
+      "source_h": 42,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Energy code energy bullet"
+    },
+    "effect_portal": {
+      "category": "effects",
+      "file": "assets/sprites/effects/effect_portal.png",
+      "flat_file": "assets/sprites/effect_portal.png",
+      "width": 99,
+      "height": 98,
+      "source_x": 275,
+      "source_y": 806,
+      "source_w": 99,
+      "source_h": 98,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Swirling blue energy ring effect"
+    },
+    "effect_blast": {
+      "category": "effects",
+      "file": "assets/sprites/effects/effect_blast.png",
+      "flat_file": "assets/sprites/effect_blast.png",
+      "width": 74,
+      "height": 81,
+      "source_x": 201,
+      "source_y": 814,
+      "source_w": 74,
+      "source_h": 81,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Golden blast impact burst"
+    },
+    "effect_sparkle": {
+      "category": "effects",
+      "file": "assets/sprites/effects/effect_sparkle.png",
+      "flat_file": "assets/sprites/effect_sparkle.png",
+      "width": 27,
+      "height": 13,
+      "source_x": 34,
+      "source_y": 674,
+      "source_w": 27,
+      "source_h": 13,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Glittering star sparkle shine"
+    },
+    "trophy": {
+      "category": "ui",
+      "file": "assets/sprites/ui/trophy.png",
+      "flat_file": "assets/sprites/trophy.png",
+      "width": 43,
+      "height": 62,
+      "source_x": 1559,
+      "source_y": 735,
+      "source_w": 43,
+      "source_h": 62,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "CodeGym Champion gold trophy"
+    },
+    "medal": {
+      "category": "ui",
+      "file": "assets/sprites/ui/medal.png",
+      "flat_file": "assets/sprites/medal.png",
+      "width": 47,
+      "height": 41,
+      "source_x": 1617,
+      "source_y": 739,
+      "source_w": 47,
+      "source_h": 41,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Honor gold medal with red ribbon"
+    },
+    "crown": {
+      "category": "ui",
+      "file": "assets/sprites/ui/crown.png",
+      "flat_file": "assets/sprites/crown.png",
+      "width": 76,
+      "height": 66,
+      "source_x": 1399,
+      "source_y": 740,
+      "source_w": 76,
+      "source_h": 66,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Royal graduation crown"
+    },
+    "flag_vn": {
+      "category": "ui",
+      "file": "assets/sprites/ui/flag_vn.png",
+      "flat_file": "assets/sprites/flag_vn.png",
+      "width": 52,
+      "height": 59,
+      "source_x": 1408,
+      "source_y": 810,
+      "source_w": 52,
+      "source_h": 59,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "National flag of Vietnam"
+    },
+    "ui_avatar": {
+      "category": "ui",
+      "file": "assets/sprites/ui/ui_avatar.png",
+      "flat_file": "assets/sprites/ui_avatar.png",
+      "width": 97,
+      "height": 79,
+      "source_x": 658,
+      "source_y": 749,
+      "source_w": 97,
+      "source_h": 79,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Student coder character profile avatar"
+    },
+    "ui_bubble": {
+      "category": "ui",
+      "file": "assets/sprites/ui/ui_bubble.png",
+      "flat_file": "assets/sprites/ui_bubble.png",
+      "width": 148,
+      "height": 45,
+      "source_x": 651,
+      "source_y": 704,
+      "source_w": 148,
+      "source_h": 45,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "description": "Mentor advice dialog speech bubble"
+    }
+  },
+  "animations": {
+    "player": {
+      "idle": [
+        "player_idle"
+      ],
+      "run": [
+        "player_run",
+        "player_idle"
+      ],
+      "jump": [
+        "player_jump"
+      ],
+      "fall": [
+        "player_fall"
+      ],
+      "hurt": [
+        "player_hurt"
+      ],
+      "die": [
+        "player_die"
+      ],
+      "shoot": [
+        "player_shoot"
+      ],
+      "attack": [
+        "player_attack"
+      ],
+      "slide": [
+        "player_slide"
+      ]
+    },
+    "enemies": {
+      "goomba": [
+        "enemy_goomba"
+      ],
+      "red_bug": [
+        "enemy_red_bug"
+      ],
+      "turtle": [
+        "enemy_turtle"
+      ],
+      "spiny": [
+        "enemy_spiny"
+      ],
+      "ghost": [
+        "enemy_ghost"
+      ],
+      "bat": [
+        "enemy_bat"
+      ],
+      "crab": [
+        "enemy_crab"
+      ],
+      "piranha": [
+        "enemy_piranha"
+      ],
+      "mage": [
+        "enemy_mage"
+      ],
+      "spike_ball": [
+        "enemy_spike_ball"
+      ],
+      "slime_green": [
+        "enemy_slime_green"
+      ],
+      "slime_purple": [
+        "enemy_slime_purple"
+      ],
+      "skeleton": [
+        "enemy_skeleton"
+      ],
+      "fish": [
+        "enemy_fish"
+      ],
+      "thwomp": [
+        "enemy_thwomp"
+      ]
+    }
+  }
+}

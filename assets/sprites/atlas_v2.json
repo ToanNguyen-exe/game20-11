@@ -1,0 +1,784 @@
+{
+  "block": 2,
+  "palette_size": 56,
+  "palette": [
+    "#F2F6FC",
+    "#F8E8A0",
+    "#DDD2D9",
+    "#FDD047",
+    "#D7BAC1",
+    "#B6B2D0",
+    "#FDC131",
+    "#F3AB34",
+    "#66E787",
+    "#56CF7B",
+    "#27D757",
+    "#26C569",
+    "#A8A6C4",
+    "#5FAD75",
+    "#20ACC5",
+    "#20AE24",
+    "#E68D59",
+    "#F08D21",
+    "#E67735",
+    "#9A96C1",
+    "#A6959B",
+    "#A283A7",
+    "#B4774A",
+    "#7E89C3",
+    "#7C858C",
+    "#71739B",
+    "#1C91F3",
+    "#179139",
+    "#1677F4",
+    "#1F775E",
+    "#CB634C",
+    "#D54F60",
+    "#DB6121",
+    "#C54C23",
+    "#975E5C",
+    "#994D5A",
+    "#9F4A27",
+    "#FF342C",
+    "#F4332D",
+    "#F01A25",
+    "#993B46",
+    "#93391D",
+    "#A01B36",
+    "#656098",
+    "#6A595E",
+    "#604680",
+    "#6E4137",
+    "#165FE7",
+    "#2C5A73",
+    "#2C43A1",
+    "#3D3E59",
+    "#65303C",
+    "#601C2A",
+    "#21307E",
+    "#352D44",
+    "#1E1B3F"
+  ],
+  "scale": {
+    "buffs": 0.4507,
+    "effects": 0.4898,
+    "enemies": 0.4301,
+    "items": 0.4384,
+    "player": 0.367,
+    "ui": 0.7595
+  },
+  "sprites": {
+    "buff_boots": {
+      "category": "buffs",
+      "w": 28,
+      "h": 26,
+      "gw": 14,
+      "gh": 13,
+      "colors": 13
+    },
+    "buff_clock": {
+      "category": "buffs",
+      "w": 24,
+      "h": 28,
+      "gw": 12,
+      "gh": 14,
+      "colors": 11
+    },
+    "buff_flower": {
+      "category": "buffs",
+      "w": 24,
+      "h": 26,
+      "gw": 12,
+      "gh": 13,
+      "colors": 24
+    },
+    "buff_heart": {
+      "category": "buffs",
+      "w": 20,
+      "h": 18,
+      "gw": 10,
+      "gh": 9,
+      "colors": 7
+    },
+    "buff_heart_container": {
+      "category": "buffs",
+      "w": 22,
+      "h": 24,
+      "gw": 11,
+      "gh": 12,
+      "colors": 19
+    },
+    "buff_magnet": {
+      "category": "buffs",
+      "w": 24,
+      "h": 26,
+      "gw": 12,
+      "gh": 13,
+      "colors": 25
+    },
+    "buff_mushroom": {
+      "category": "buffs",
+      "w": 26,
+      "h": 26,
+      "gw": 13,
+      "gh": 13,
+      "colors": 23
+    },
+    "buff_potion": {
+      "category": "buffs",
+      "w": 24,
+      "h": 32,
+      "gw": 12,
+      "gh": 16,
+      "colors": 17
+    },
+    "buff_shield": {
+      "category": "buffs",
+      "w": 26,
+      "h": 28,
+      "gw": 13,
+      "gh": 14,
+      "colors": 11
+    },
+    "buff_star": {
+      "category": "buffs",
+      "w": 24,
+      "h": 24,
+      "gw": 12,
+      "gh": 12,
+      "colors": 12
+    },
+    "buff_star_2x": {
+      "category": "buffs",
+      "w": 28,
+      "h": 28,
+      "gw": 14,
+      "gh": 14,
+      "colors": 12
+    },
+    "effect_blast": {
+      "category": "effects",
+      "w": 36,
+      "h": 40,
+      "gw": 18,
+      "gh": 20,
+      "colors": 8
+    },
+    "effect_bullet": {
+      "category": "effects",
+      "w": 24,
+      "h": 20,
+      "gw": 12,
+      "gh": 10,
+      "colors": 14
+    },
+    "effect_portal": {
+      "category": "effects",
+      "w": 48,
+      "h": 48,
+      "gw": 24,
+      "gh": 24,
+      "colors": 8
+    },
+    "effect_sparkle": {
+      "category": "effects",
+      "w": 14,
+      "h": 6,
+      "gw": 7,
+      "gh": 3,
+      "colors": 1
+    },
+    "enemy_bat": {
+      "category": "enemies",
+      "w": 42,
+      "h": 24,
+      "gw": 21,
+      "gh": 12,
+      "colors": 16
+    },
+    "enemy_crab": {
+      "category": "enemies",
+      "w": 36,
+      "h": 24,
+      "gw": 18,
+      "gh": 12,
+      "colors": 17
+    },
+    "enemy_fish": {
+      "category": "enemies",
+      "w": 30,
+      "h": 26,
+      "gw": 15,
+      "gh": 13,
+      "colors": 29
+    },
+    "enemy_ghost": {
+      "category": "enemies",
+      "w": 34,
+      "h": 30,
+      "gw": 17,
+      "gh": 15,
+      "colors": 21
+    },
+    "enemy_goomba": {
+      "category": "enemies",
+      "w": 30,
+      "h": 30,
+      "gw": 15,
+      "gh": 15,
+      "colors": 21
+    },
+    "enemy_mage": {
+      "category": "enemies",
+      "w": 36,
+      "h": 34,
+      "gw": 18,
+      "gh": 17,
+      "colors": 27
+    },
+    "enemy_piranha": {
+      "category": "enemies",
+      "w": 26,
+      "h": 36,
+      "gw": 13,
+      "gh": 18,
+      "colors": 31
+    },
+    "enemy_red_bug": {
+      "category": "enemies",
+      "w": 28,
+      "h": 26,
+      "gw": 14,
+      "gh": 13,
+      "colors": 19
+    },
+    "enemy_skeleton": {
+      "category": "enemies",
+      "w": 30,
+      "h": 36,
+      "gw": 15,
+      "gh": 18,
+      "colors": 16
+    },
+    "enemy_slime_green": {
+      "category": "enemies",
+      "w": 34,
+      "h": 28,
+      "gw": 17,
+      "gh": 14,
+      "colors": 13
+    },
+    "enemy_slime_purple": {
+      "category": "enemies",
+      "w": 32,
+      "h": 26,
+      "gw": 16,
+      "gh": 13,
+      "colors": 15
+    },
+    "enemy_spike_ball": {
+      "category": "enemies",
+      "w": 28,
+      "h": 28,
+      "gw": 14,
+      "gh": 14,
+      "colors": 13
+    },
+    "enemy_spiny": {
+      "category": "enemies",
+      "w": 32,
+      "h": 28,
+      "gw": 16,
+      "gh": 14,
+      "colors": 22
+    },
+    "enemy_thwomp": {
+      "category": "enemies",
+      "w": 32,
+      "h": 40,
+      "gw": 16,
+      "gh": 20,
+      "colors": 16
+    },
+    "enemy_turtle": {
+      "category": "enemies",
+      "w": 32,
+      "h": 30,
+      "gw": 16,
+      "gh": 15,
+      "colors": 26
+    },
+    "item_checkpoint": {
+      "category": "items",
+      "w": 26,
+      "h": 30,
+      "gw": 13,
+      "gh": 15,
+      "colors": 24
+    },
+    "item_code_book": {
+      "category": "items",
+      "w": 28,
+      "h": 28,
+      "gw": 14,
+      "gh": 14,
+      "colors": 28
+    },
+    "item_code_scroll": {
+      "category": "items",
+      "w": 24,
+      "h": 30,
+      "gw": 12,
+      "gh": 15,
+      "colors": 11
+    },
+    "item_coin": {
+      "category": "items",
+      "w": 20,
+      "h": 24,
+      "gw": 10,
+      "gh": 12,
+      "colors": 10
+    },
+    "item_diamond": {
+      "category": "items",
+      "w": 22,
+      "h": 20,
+      "gw": 11,
+      "gh": 10,
+      "colors": 6
+    },
+    "item_key": {
+      "category": "items",
+      "w": 18,
+      "h": 28,
+      "gw": 9,
+      "gh": 14,
+      "colors": 12
+    },
+    "item_orb": {
+      "category": "items",
+      "w": 34,
+      "h": 32,
+      "gw": 17,
+      "gh": 16,
+      "colors": 12
+    },
+    "prop_barrel": {
+      "category": "objects",
+      "w": 36,
+      "h": 40,
+      "gw": 16,
+      "gh": 20,
+      "colors": 28
+    },
+    "prop_bush": {
+      "category": "objects",
+      "w": 48,
+      "h": 36,
+      "gw": 24,
+      "gh": 18,
+      "colors": 9
+    },
+    "prop_cactus": {
+      "category": "objects",
+      "w": 34,
+      "h": 48,
+      "gw": 16,
+      "gh": 24,
+      "colors": 14
+    },
+    "prop_chest": {
+      "category": "objects",
+      "w": 42,
+      "h": 40,
+      "gw": 19,
+      "gh": 20,
+      "colors": 20
+    },
+    "prop_crate": {
+      "category": "objects",
+      "w": 32,
+      "h": 32,
+      "gw": 16,
+      "gh": 16,
+      "colors": 11
+    },
+    "prop_door_locked": {
+      "category": "objects",
+      "w": 50,
+      "h": 80,
+      "gw": 25,
+      "gh": 28,
+      "colors": 17
+    },
+    "prop_door_wood": {
+      "category": "objects",
+      "w": 50,
+      "h": 80,
+      "gw": 25,
+      "gh": 28,
+      "colors": 24
+    },
+    "prop_fence": {
+      "category": "objects",
+      "w": 45,
+      "h": 36,
+      "gw": 22,
+      "gh": 17,
+      "colors": 16
+    },
+    "prop_flag": {
+      "category": "objects",
+      "w": 42,
+      "h": 128,
+      "gw": 21,
+      "gh": 33,
+      "colors": 29
+    },
+    "prop_flower": {
+      "category": "objects",
+      "w": 26,
+      "h": 28,
+      "gw": 10,
+      "gh": 14,
+      "colors": 18
+    },
+    "prop_portal": {
+      "category": "objects",
+      "w": 60,
+      "h": 105,
+      "gw": 30,
+      "gh": 33,
+      "colors": 17
+    },
+    "prop_sign": {
+      "category": "objects",
+      "w": 36,
+      "h": 40,
+      "gw": 18,
+      "gh": 18,
+      "colors": 11
+    },
+    "prop_tnt": {
+      "category": "objects",
+      "w": 38,
+      "h": 38,
+      "gw": 17,
+      "gh": 19,
+      "colors": 21
+    },
+    "prop_tree": {
+      "category": "objects",
+      "w": 60,
+      "h": 88,
+      "gw": 30,
+      "gh": 34,
+      "colors": 18
+    },
+    "player_attack": {
+      "category": "player",
+      "w": 34,
+      "h": 40,
+      "gw": 17,
+      "gh": 20,
+      "colors": 27
+    },
+    "player_die": {
+      "category": "player",
+      "w": 38,
+      "h": 22,
+      "gw": 19,
+      "gh": 11,
+      "colors": 26
+    },
+    "player_fall": {
+      "category": "player",
+      "w": 26,
+      "h": 40,
+      "gw": 13,
+      "gh": 20,
+      "colors": 25
+    },
+    "player_hurt": {
+      "category": "player",
+      "w": 34,
+      "h": 34,
+      "gw": 17,
+      "gh": 17,
+      "colors": 28
+    },
+    "player_idle": {
+      "category": "player",
+      "w": 28,
+      "h": 40,
+      "gw": 14,
+      "gh": 20,
+      "colors": 26
+    },
+    "player_jump": {
+      "category": "player",
+      "w": 32,
+      "h": 36,
+      "gw": 16,
+      "gh": 18,
+      "colors": 26
+    },
+    "player_run": {
+      "category": "player",
+      "w": 28,
+      "h": 36,
+      "gw": 14,
+      "gh": 18,
+      "colors": 29
+    },
+    "player_shoot": {
+      "category": "player",
+      "w": 42,
+      "h": 30,
+      "gw": 21,
+      "gh": 15,
+      "colors": 28
+    },
+    "player_slide": {
+      "category": "player",
+      "w": 44,
+      "h": 30,
+      "gw": 22,
+      "gh": 15,
+      "colors": 28
+    },
+    "brick": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 12
+    },
+    "coin_box": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 12
+    },
+    "dirt": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 12
+    },
+    "dirt_grass": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 22
+    },
+    "exclamation_block": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 16
+    },
+    "fire": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 15
+    },
+    "grass": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 13
+    },
+    "ice": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 5
+    },
+    "ladder": {
+      "category": "tiles",
+      "w": 22,
+      "h": 40,
+      "gw": 11,
+      "gh": 20,
+      "colors": 10
+    },
+    "lava": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 17
+    },
+    "metal_block": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 14
+    },
+    "pipe_green": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 6
+    },
+    "pipe_red": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 13
+    },
+    "question_block": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 14
+    },
+    "stone": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 9
+    },
+    "wood_crate": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 11
+    },
+    "wood_plank": {
+      "category": "tiles",
+      "w": 40,
+      "h": 40,
+      "gw": 20,
+      "gh": 20,
+      "colors": 7
+    },
+    "trigger_btn_red": {
+      "category": "triggers",
+      "w": 46,
+      "h": 32,
+      "gw": 23,
+      "gh": 16,
+      "colors": 25
+    },
+    "trigger_platform": {
+      "category": "triggers",
+      "w": 70,
+      "h": 22,
+      "gw": 23,
+      "gh": 11,
+      "colors": 11
+    },
+    "trigger_platform_gold": {
+      "category": "triggers",
+      "w": 75,
+      "h": 22,
+      "gw": 26,
+      "gh": 11,
+      "colors": 15
+    },
+    "trigger_saw": {
+      "category": "triggers",
+      "w": 36,
+      "h": 36,
+      "gw": 15,
+      "gh": 18,
+      "colors": 23
+    },
+    "trigger_spikes": {
+      "category": "triggers",
+      "w": 38,
+      "h": 26,
+      "gw": 17,
+      "gh": 13,
+      "colors": 6
+    },
+    "trigger_spring": {
+      "category": "triggers",
+      "w": 36,
+      "h": 28,
+      "gw": 12,
+      "gh": 14,
+      "colors": 14
+    },
+    "crown": {
+      "category": "ui",
+      "w": 40,
+      "h": 36,
+      "gw": 20,
+      "gh": 17,
+      "colors": 11
+    },
+    "flag_vn": {
+      "category": "ui",
+      "w": 55,
+      "h": 180,
+      "gw": 28,
+      "gh": 31,
+      "colors": 18
+    },
+    "medal": {
+      "category": "ui",
+      "w": 34,
+      "h": 42,
+      "gw": 17,
+      "gh": 15,
+      "colors": 12
+    },
+    "trophy": {
+      "category": "ui",
+      "w": 42,
+      "h": 54,
+      "gw": 19,
+      "gh": 27,
+      "colors": 34
+    },
+    "ui_avatar": {
+      "category": "ui",
+      "w": 74,
+      "h": 60,
+      "gw": 37,
+      "gh": 30,
+      "colors": 38
+    },
+    "ui_bubble": {
+      "category": "ui",
+      "w": 106,
+      "h": 34,
+      "gw": 53,
+      "gh": 17,
+      "colors": 20
+    }
+  }
+}

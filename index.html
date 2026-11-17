@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Code Quest: 3 Màn Chơi Tri Ân 20/11 - Super Mario Coder</title>
+  
+  <!-- Google Fonts: Press Start 2P & Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F59E0B'/%3E%3Cpath d='M11 10 L5 16 L11 22' stroke='%23040816' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M21 10 L27 16 L21 22' stroke='%23040816' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      background-color: #040816;
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .pixel-font {
+      font-family: 'Press Start 2P', monospace;
+      image-rendering: pixelated;
+    }
+
+    #game-canvas {
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-crisp-edges;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .retro-btn {
+      box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.45), inset 3px 3px 0px 0px rgba(255, 255, 255, 0.45);
+    }
+    .retro-btn:active {
+      box-shadow: inset 3px 3px 0px 0px rgba(0, 0, 0, 0.45);
+      transform: translate(2px, 2px);
+    }
+
+    .scanlines {
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.22) 50%
+      ), linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.02),
+        rgba(0, 255, 0, 0.01),
+        rgba(0, 0, 255, 0.02)
+      );
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-white flex flex-col items-center justify-between p-2 sm:p-3 overflow-hidden relative">
+
+  <!-- TOP HEADER & STAGE INDICATOR -->
+  <header class="w-full max-w-5xl flex items-center justify-between px-3.5 py-2.5 bg-slate-900/90 rounded-2xl border border-white/10 backdrop-blur-md mb-2 z-20">
+    <div class="flex items-center space-x-3">
+      <!-- Player Avatar -->
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-amber-500 p-0.5 shadow-md flex items-center justify-center overflow-hidden">
+        <img id="header-avatar" src="assets/sprites/ui_avatar.png" alt="Avatar" class="w-full h-full object-contain">
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="pixel-font text-[9px] text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/30" id="stage-badge-header">MÀN 1: THẢO NGUYÊN</span>
+          <span class="text-xs text-slate-400 font-mono hidden sm:inline">3 Màn Chơi 20/11</span>
+        </div>
+        <h1 class="text-xs sm:text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+          Code Quest: Hành Trình Vượt 3 Ải Tri Ân Thầy Cô
+        </h1>
+      </div>
+    </div>
+
+    <!-- Right Controls: Sound, Stage Select, Restart -->
+    <div class="flex items-center space-x-2 text-xs">
+      <!-- Quick Stage Switcher -->
+      <div class="hidden sm:flex items-center space-x-1 bg-black/40 p-1 rounded-xl border border-white/10 font-mono text-[10px]">
+        <button class="stage-select-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white" data-stage="1">Màn 1</button>
+        <button class="stage-select-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white" data-stage="2">Màn 2</button>
+        <button class="stage-select-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white" data-stage="3">Màn 3</button>
+      </div>
+
+      <button id="btn-sound-toggle" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-amber-400 transition" title="Bật/Tắt âm thanh">
+        <i data-lucide="volume-2" id="icon-sound" class="w-4 h-4"></i>
+      </button>
+      <button id="btn-tuning-toggle" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-amber-400 transition" title="Tinh chỉnh vật lý Mario">
+        <i data-lucide="sliders" class="w-4 h-4"></i>
+      </button>
+      <button id="btn-restart" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-amber-400 transition" title="Chơi lại">
+        <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+      </button>
+      <div class="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+        <kbd class="px-1.5 py-0.5 rounded bg-black/50 border border-white/20 text-amber-400">← →</kbd>
+        <span>Chạy, </span>
+        <kbd class="px-1.5 py-0.5 rounded bg-black/50 border border-white/20 text-amber-400">Space</kbd>
+        <span>Nhảy, </span>
+        <kbd class="px-1.5 py-0.5 rounded bg-black/50 border border-white/20 text-amber-400">J/X</kbd>
+        <span>Bắn đạn</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- GAME CANVAS CONTAINER -->
+  <main class="w-full max-w-5xl flex-1 flex flex-col items-center justify-center relative">
+    
+    <!-- Outer Arcade Frame -->
+    <div class="relative rounded-2xl sm:rounded-3xl p-2 sm:p-2.5 bg-gradient-to-b from-slate-800 to-slate-950 border-2 sm:border-4 border-amber-500/40 shadow-2xl shadow-indigo-950/80 w-full flex flex-col items-center">
+      
+      <!-- Screen Inner Wrapper (16:9 Aspect Ratio) -->
+      <div class="relative w-full aspect-[16/9] max-h-[72vh] rounded-xl overflow-hidden bg-sky-300 border-2 border-black/80 flex items-center justify-center">
+        
+        <!-- Game Canvas -->
+        <canvas id="game-canvas" width="840" height="472" class="w-full h-full block"></canvas>
+        
+        <!-- Retro Scanlines -->
+        <div class="scanlines absolute inset-0 z-10 pointer-events-none opacity-30"></div>
+
+        <!-- Mentor Wisdom Notification Toast -->
+        <div id="mentor-toast" class="absolute top-14 left-1/2 -translate-x-1/2 z-20 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2">
+          <div class="px-4 py-2 rounded-xl bg-slate-950/95 border-2 border-amber-400 shadow-2xl backdrop-blur-md flex items-center space-x-3 max-w-md">
+            <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm shadow">
+              👨‍🏫
+            </div>
+            <div>
+              <p class="pixel-font text-[9px] text-amber-400" id="toast-title">MENTOR LỜI KHUYÊN</p>
+              <p class="text-xs text-white font-sans leading-tight mt-0.5" id="toast-msg">"Format code đi em ơi! (+500 EXP)"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Retro Physics Tuning Drawer (Toggle via btn-tuning-toggle) -->
+        <div id="tuning-modal" class="hidden absolute top-14 right-4 z-50 p-4 rounded-2xl bg-slate-950/95 border-2 border-amber-500/70 shadow-2xl backdrop-blur-md text-xs font-mono text-slate-200 w-64 space-y-3">
+          <div class="flex justify-between items-center border-b border-white/10 pb-2">
+            <span class="font-bold text-amber-400 flex items-center gap-1.5"><i data-lucide="sliders" class="w-3.5 h-3.5"></i> VẬT LÝ MARIO</span>
+            <button id="btn-close-tuning" class="text-slate-400 hover:text-white text-sm">✕</button>
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-1">
+              <span>Tốc độ đi:</span>
+              <span id="val-walk" class="text-amber-400 font-bold">1.85</span>
+            </div>
+            <input type="range" id="slider-walk" min="1.0" max="3.0" step="0.05" value="1.85" class="w-full accent-amber-500 cursor-pointer">
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-1">
+              <span>Lực nhảy:</span>
+              <span id="val-jump" class="text-amber-400 font-bold">-6.4</span>
+            </div>
+            <input type="range" id="slider-jump" min="-10.0" max="-4.5" step="0.1" value="-6.4" class="w-full accent-amber-500 cursor-pointer">
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-1">
+              <span>Trọng lực rơi:</span>
+              <span id="val-fall" class="text-amber-400 font-bold">0.28</span>
+            </div>
+            <input type="range" id="slider-fall" min="0.15" max="0.55" step="0.01" value="0.28" class="w-full accent-amber-500 cursor-pointer">
+          </div>
+        </div>
+
+        <!-- Start Game Screen Overlay -->
+        <div id="start-overlay" class="absolute inset-0 z-30 bg-slate-950/90 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center shadow-lg shadow-amber-500/40 mb-3 animate-bounce">
+            <span class="pixel-font text-2xl text-slate-950">&lt;/&gt;</span>
+          </div>
+          <h2 class="pixel-font text-sm sm:text-base text-amber-400 mb-1">CODE QUEST: 3 MÀN CHƠI TRI ÂN 20/11</h2>
+          <p class="text-xs text-slate-300 max-w-md mb-4 leading-relaxed font-sans">
+            Tận dụng trọn vẹn 89 Asset Pixel Art: Vượt qua 3 màn chơi (Thảo Nguyên, Lâu Đài OOP, Đấu Trường Dung Nham) để dâng tặng Cúp Vàng Tri Ân cho Thầy Cô!
+          </p>
+          <div class="flex items-center space-x-3 mb-3">
+            <button id="btn-start-game" class="retro-btn px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 pixel-font text-xs font-bold transition">
+              BẮT ĐẦU CHƠI (START GAME)
+            </button>
+          </div>
+          <p class="text-[10px] text-slate-400 font-mono">Dùng bàn phím hoặc nút cảm ứng bên dưới để chơi</p>
+        </div>
+
+        <!-- Stage Cleared Transition Modal -->
+        <div id="stage-clear-overlay" class="absolute inset-0 z-30 bg-slate-950/90 backdrop-blur-md hidden flex-col items-center justify-center p-6 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-3xl shadow-lg mb-3 animate-pulse">
+            ✨
+          </div>
+          <h2 class="pixel-font text-sm sm:text-lg text-emerald-400 mb-1" id="stage-clear-title">VƯỢT ẢI THÀNH CÔNG!</h2>
+          <p class="text-xs text-slate-300 max-w-md mb-2 leading-relaxed" id="stage-clear-desc">
+            Bạn đã mở khóa bí kíp và vượt qua thử thách. Chuẩn bị bước vào ải tiếp theo!
+          </p>
+          <div id="stage-clear-score" class="font-mono text-xs text-amber-300 font-bold mb-4 px-3 py-1.5 rounded-lg bg-white/5 border border-amber-400/30">
+            ⭐ TỔNG ĐIỂM: 0 | XU: 0 🪙
+          </div>
+          <button id="btn-next-stage" class="retro-btn px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 pixel-font text-xs font-bold transition">
+            TIẾP TỤC SANG MÀN TIẾP (NEXT STAGE)
+          </button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="gameover-overlay" class="absolute inset-0 z-30 bg-black/90 backdrop-blur-md hidden flex-col items-center justify-center p-6 text-center">
+          <h2 class="pixel-font text-lg sm:text-2xl text-rose-500 mb-2">GAME OVER!</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mb-4">Đừng nản lòng! Bug sinh ra là để Coder rèn giũa bản lĩnh!</p>
+          <button id="btn-retry-game" class="retro-btn px-6 py-2.5 rounded-xl bg-amber-500 text-slate-950 pixel-font text-xs font-bold transition">
+            HỒI SINH (RETRY)
+          </button>
+        </div>
+
+        <!-- Grand Victory / 20/11 Celebration Modal -->
+        <div id="victory-overlay" class="absolute inset-0 z-30 bg-slate-950/95 backdrop-blur-lg hidden flex-col items-center justify-center p-6 text-center">
+          <div class="flex items-center space-x-2 text-3xl mb-2 animate-bounce">
+            <span>🏆</span>
+            <span>🥇</span>
+            <span>👑</span>
+          </div>
+          <h2 class="pixel-font text-sm sm:text-lg text-amber-400 mb-2">ĐẠI KHẢI HOÀN: TRI ÂN 20/11!</h2>
+          <p class="text-xs sm:text-sm text-slate-200 max-w-lg mb-3 leading-relaxed font-sans">
+            Bạn đã xuất sắc chinh phục trọn vẹn cả 3 Màn Chơi: Thảo Nguyên, Mê Cung OOP và Đấu Trường Dung Nham! 
+            <br><br>
+            <strong class="text-amber-300">"Kính chúc Quý Thầy/Cô CodeGym ngày 20/11 luôn tràn ngập niềm vui, dồi dào sức khỏe và ngọn lửa đam mê để dìu dắt thêm nhiều thế hệ lập trình viên tài năng!"</strong>
+          </p>
+          <div id="victory-score-detail" class="font-mono text-xs text-amber-300 font-bold mb-4 px-4 py-2 rounded-lg bg-white/5 border border-amber-400/30">
+            🏆 TỔNG ĐIỂM: 0 | XU: 0 🪙 | RANK: SENIOR ARCHITECT (S+)
+          </div>
+          <div class="flex items-center space-x-3">
+            <button id="btn-play-again" class="retro-btn px-5 py-2.5 rounded-xl bg-amber-500 text-slate-950 pixel-font text-xs font-bold transition">
+              CHƠI LẠI TỪ MÀN 1
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIRTUAL TOUCHPAD FOR MOBILE / TOUCH SCREENS -->
+    <div class="w-full max-w-5xl flex items-center justify-between px-3 py-2 mt-2 select-none md:hidden z-20">
+      <!-- D-Pad Left/Right -->
+      <div class="flex space-x-2">
+        <button id="touch-left" class="retro-btn w-14 h-14 rounded-2xl bg-slate-800/90 active:bg-slate-700 border border-white/20 flex items-center justify-center text-xl text-white">
+          ◀
+        </button>
+        <button id="touch-right" class="retro-btn w-14 h-14 rounded-2xl bg-slate-800/90 active:bg-slate-700 border border-white/20 flex items-center justify-center text-xl text-white">
+          ▶
+        </button>
+      </div>
+
+      <!-- Action Buttons (Jump / Shoot) -->
+      <div class="flex space-x-3">
+        <button id="touch-shoot" class="retro-btn w-14 h-14 rounded-full bg-rose-600/90 active:bg-rose-500 border border-white/30 flex items-center justify-center pixel-font text-[9px] text-white">
+          BẮN
+        </button>
+        <button id="touch-jump" class="retro-btn w-14 h-14 rounded-full bg-amber-500/90 active:bg-amber-400 border border-white/30 flex items-center justify-center pixel-font text-[9px] text-slate-950 font-bold">
+          NHẢY
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full max-w-5xl text-center py-2 text-[11px] font-mono text-slate-500 z-10 flex flex-wrap justify-between items-center px-4">
+    <span>Tài nguyên: <em>GameForDe 89 Asset Slices</em></span>
+    <span>Trò chơi tham dự Cuộc thi Tri Ân Thầy Cô CodeGym 20/11</span>
+  </footer>
+
+  <!-- Include Multi-stage Engine with Cache Busting -->
+  <script src="game.js?v=20261117_v4"></script>
+</body>
+</html>

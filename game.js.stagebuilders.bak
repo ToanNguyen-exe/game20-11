@@ -1,0 +1,191 @@
+// === MÀN 1: THẢO NGUYÊN CODE (GREENFIELDS - THIẾT KẾ CHUẨN TRIẾT LÝ 1-1 NES) ===
+function buildStage1() {
+  // Ground (Hố 1 rộng 2 ô x=37..38, Hố 2 rộng 3 ô x=49..51)
+  for (let x = 0; x < LEVEL_WIDTH_TILES; x++) {
+    if ((x >= 37 && x <= 38) || (x >= 49 && x <= 51)) continue;
+    levelMap[10][x] = 'grass';
+    levelMap[11][x] = 'dirt';
+  }
+
+  // Props
+  props.push({ x: 3 * TILE_SIZE, y: 7.8 * TILE_SIZE, type: 'prop_tree', w: 60, h: 88 });
+  props.push({ x: 8 * TILE_SIZE, y: 9.3 * TILE_SIZE, type: 'prop_flower', w: 26, h: 28 });
+  props.push({ x: 18 * TILE_SIZE, y: 9.1 * TILE_SIZE, type: 'prop_bush', w: 48, h: 36 });
+  props.push({ x: 35 * TILE_SIZE, y: 9.0 * TILE_SIZE, type: 'prop_sign', w: 36, h: 40 });
+  props.push({ x: 44 * TILE_SIZE, y: 9.1 * TILE_SIZE, type: 'prop_fence', w: 45, h: 36 });
+  props.push({ x: 55 * TILE_SIZE, y: 7.8 * TILE_SIZE, type: 'prop_tree', w: 60, h: 88 });
+
+  // 1. Khối thưởng đầu tiên: Cao 3 ô so với đất để người chơi thử nhảy
+  createBlock(5, 7, 'question_block', 'coin');
+
+  // 2. Cụm khối (gạch và ? xen kẽ chứa Nấm Tăng Trưởng)
+  createBlock(12, 7, 'brick');
+  createBlock(13, 7, 'question_block', 'mushroom');
+  createBlock(14, 7, 'brick');
+  createBlock(15, 7, 'question_block', 'coin');
+  createBlock(16, 7, 'brick');
+
+  // 3. Ống cống thấp dần lên cao (1 ô -> 2 ô -> 3 ô để học nhảy cao)
+  createPipe(20, 9, 1);
+  createPipe(26, 8, 2);
+  createPipe(32, 7, 3);
+  piranhaPlants.push(new PiranhaPlant(32, 7)); // Cây hoa ăn thịt Piranha trong ống cống 3!
+
+  // 4. Khối bí mật, hoa lửa & sao bất tử
+  createBlock(24, 6, 'question_block', 'flower'); // Khối hoa lửa Fire Coder!
+  createBlock(44, 7, 'question_block', 'star');
+  createBlock(45, 7, 'brick');
+  createBlock(58, 6, 'coin_box', 'coin');
+
+  // 5. Cầu thang kim tự tháp khối đá dẫn tới Cột Cờ (Hiệu ứng leo đỉnh)
+  for (let step = 1; step <= 4; step++) {
+    for (let h = 0; h < step; h++) {
+      levelMap[10 - h - 1][67 + step] = 'stone';
+    }
+  }
+
+  // NẤM TĂNG TRƯỞNG XUẤT HIỆN SẴN ĐẦU MÀN
+  activeMushrooms.push(new WalkingMushroom(7.5 * TILE_SIZE, 9.2 * TILE_SIZE));
+
+  // Collectibles
+  collectibles.push({ x: 6 * TILE_SIZE, y: 5 * TILE_SIZE, type: 'coin', collected: false });
+  collectibles.push({ x: 21 * TILE_SIZE, y: 7 * TILE_SIZE, type: 'coin', collected: false });
+  collectibles.push({ x: 27 * TILE_SIZE, y: 6 * TILE_SIZE, type: 'coin', collected: false });
+  collectibles.push({ x: 45 * TILE_SIZE, y: 4.5 * TILE_SIZE, type: 'scroll', collected: false });
+
+  // Enemies (Quái vật đầu tiên an toàn để học giẫm, tiếp theo là Rùa Koopa mai đá)
+  enemies.push(new Enemy(9 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_goomba'));
+  enemies.push(new Enemy(18 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_goomba'));
+  enemies.push(new Enemy(42 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_turtle')); // Rùa mai đá
+  enemies.push(new Enemy(54 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_slime_green'));
+  enemies.push(new Enemy(62 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_crab'));
+
+  // Đích Màn 1: Cột cờ sau cầu thang và Cửa gỗ lâu đài
+  props.push({ x: 75 * TILE_SIZE, y: 6.8 * TILE_SIZE, type: 'prop_flag', w: 42, h: 128, isGoal: true });
+  props.push({ x: 79 * TILE_SIZE, y: 8.0 * TILE_SIZE, type: 'prop_door_wood', w: 50, h: 80 });
+}
+
+// === MÀN 2: MÊ CUNG LÂU ĐÀI OOP (DUNGEON & CASTLE) ===
+function buildStage2() {
+  for (let x = 0; x < LEVEL_WIDTH_TILES; x++) {
+    if ((x >= 22 && x <= 25) || (x >= 45 && x <= 48)) continue;
+    levelMap[10][x] = (x > 30 && x < 45) ? 'ice' : 'stone';
+    levelMap[11][x] = 'stone';
+  }
+
+  props.push({ x: 5 * TILE_SIZE, y: 9.0 * TILE_SIZE, type: 'prop_barrel', w: 36, h: 40 });
+  props.push({ x: 12 * TILE_SIZE, y: 9.0 * TILE_SIZE, type: 'prop_tnt', w: 38, h: 38 });
+  props.push({ x: 30 * TILE_SIZE, y: 8.8 * TILE_SIZE, type: 'prop_cactus', w: 34, h: 48 });
+  props.push({ x: 52 * TILE_SIZE, y: 9.0 * TILE_SIZE, type: 'prop_chest', w: 42, h: 40 });
+
+  for (let x = 8; x <= 12; x++) levelMap[7][x] = 'wood_plank';
+  for (let x = 27; x <= 32; x++) levelMap[6][x] = 'stone';
+  for (let x = 40; x <= 44; x++) levelMap[7][x] = 'stone';
+
+  for (let y = 7; y <= 9; y++) levelMap[y][12] = 'ladder';
+
+  createBlock(9, 4, 'exclamation_block', 'mushroom');
+  createBlock(11, 4, 'question_block', 'key');
+  createBlock(28, 3, 'question_block', 'shield');
+  createBlock(30, 3, 'exclamation_block', 'diamond');
+  createBlock(42, 4, 'question_block', 'boots');
+
+  activeMushrooms.push(new WalkingMushroom(10 * TILE_SIZE, 6.2 * TILE_SIZE));
+  createPipe(46, 8, 2);
+  piranhaPlants.push(new PiranhaPlant(46, 8));
+
+  triggers.push({ x: 16 * TILE_SIZE, y: 9.3 * TILE_SIZE, type: 'trigger_spring', w: 36, h: 28 });
+  triggers.push({ x: 35 * TILE_SIZE, y: 9.3 * TILE_SIZE, type: 'trigger_saw', w: 36, h: 36, isHazard: true });
+  triggers.push({ x: 41 * TILE_SIZE, y: 9.3 * TILE_SIZE, type: 'trigger_spikes', w: 38, h: 26, isHazard: true });
+
+  triggers.push({
+    x: 22 * TILE_SIZE, y: 8 * TILE_SIZE, w: 70, h: 22, type: 'trigger_platform',
+    minX: 21 * TILE_SIZE, maxX: 26 * TILE_SIZE, vx: 1.2, isPlatform: true
+  });
+
+  collectibles.push({ x: 11 * TILE_SIZE, y: 2.8 * TILE_SIZE, type: 'key', collected: false });
+  collectibles.push({ x: 29 * TILE_SIZE, y: 1.8 * TILE_SIZE, type: 'diamond', collected: false });
+  collectibles.push({ x: 42 * TILE_SIZE, y: 2.8 * TILE_SIZE, type: 'book', collected: false });
+
+  enemies.push(new Enemy(14 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_skeleton'));
+  enemies.push(new Enemy(20 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_spiny')); // Gai không giẫm được!
+  enemies.push(new Enemy(28 * TILE_SIZE, 4.5 * TILE_SIZE, 'enemy_bat', true));
+  enemies.push(new Enemy(38 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_turtle'));
+  enemies.push(new Enemy(50 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_mage'));
+  enemies.push(new Enemy(58 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_thwomp'));
+
+  const goalX = (LEVEL_WIDTH_TILES - 8) * TILE_SIZE;
+  props.push({ x: goalX, y: 6.8 * TILE_SIZE, type: 'prop_flag', w: 42, h: 128, isGoal: true });
+  props.push({ x: goalX + 60, y: 8.0 * TILE_SIZE, type: 'prop_door_locked', w: 50, h: 80 });
+}
+
+// === MÀN 3: ĐẤU TRƯỜNG DUNG NHAM & TRI ÂN 20/11 (GRAND FINALE) ===
+function buildStage3() {
+  for (let x = 0; x < LEVEL_WIDTH_TILES; x++) {
+    if ((x >= 0 && x <= 15) || (x >= 22 && x <= 32) || (x >= 40 && x <= 50) || (x >= 60 && x <= LEVEL_WIDTH_TILES)) {
+      levelMap[10][x] = 'stone';
+      levelMap[11][x] = 'stone';
+    } else {
+      levelMap[10][x] = 'lava';
+      levelMap[11][x] = 'fire';
+    }
+  }
+
+  triggers.push({
+    x: 16 * TILE_SIZE, y: 8 * TILE_SIZE, w: 75, h: 22, type: 'trigger_platform_gold',
+    minX: 16 * TILE_SIZE, maxX: 21 * TILE_SIZE, vx: 1.4, isPlatform: true
+  });
+  triggers.push({
+    x: 33 * TILE_SIZE, y: 7.5 * TILE_SIZE, w: 75, h: 22, type: 'trigger_platform_gold',
+    minX: 33 * TILE_SIZE, maxX: 39 * TILE_SIZE, vx: 1.5, isPlatform: true
+  });
+  triggers.push({
+    x: 52 * TILE_SIZE, y: 7 * TILE_SIZE, w: 75, h: 22, type: 'trigger_platform_gold',
+    minX: 52 * TILE_SIZE, maxX: 58 * TILE_SIZE, vx: 1.3, isPlatform: true
+  });
+
+  triggers.push({ x: 8 * TILE_SIZE, y: 9.3 * TILE_SIZE, type: 'trigger_spring', w: 36, h: 28 });
+  triggers.push({ x: 42 * TILE_SIZE, y: 9.3 * TILE_SIZE, type: 'trigger_spring', w: 36, h: 28 });
+
+  // Khối đệm và cụm khối thưởng Màn 3 chuẩn độ cao 3 ô (y = 7) để nhảy vừa tầm
+  createBlock(10, 7, 'exclamation_block', 'mushroom');
+  createBlock(12, 7, 'question_block', 'heart_container');
+
+  // Bậc đá bước nhảy và cụm ? chứa Sao 2X & Hộp xu
+  levelMap[8][23] = 'stone';
+  createBlock(25, 7, 'question_block', 'star_2x');
+  createBlock(26, 7, 'brick');
+  createBlock(27, 7, 'coin_box', 'coin');
+  levelMap[8][29] = 'stone';
+
+  createBlock(44, 7, 'brick');
+  createBlock(45, 7, 'question_block', 'flower');
+  createBlock(46, 7, 'brick');
+
+  activeMushrooms.push(new WalkingMushroom(18 * TILE_SIZE, 7.3 * TILE_SIZE));
+
+  for (let step = 0; step < 7; step++) {
+    for (let y = 9 - step; y <= 9; y++) {
+      levelMap[y][66 + step] = 'stone';
+    }
+  }
+
+  collectibles.push({ x: 10 * TILE_SIZE, y: 5.5 * TILE_SIZE, type: 'orb', collected: false });
+  collectibles.push({ x: 25 * TILE_SIZE, y: 5.5 * TILE_SIZE, type: 'star_2x', collected: false });
+  collectibles.push({ x: 45 * TILE_SIZE, y: 5.5 * TILE_SIZE, type: 'heart_container', collected: false });
+
+  enemies.push(new Enemy(14 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_slime_purple'));
+  enemies.push(new Enemy(26 * TILE_SIZE, 8.5 * TILE_SIZE, 'enemy_ghost', true));
+  enemies.push(new Enemy(35 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_fish', true));
+  enemies.push(new Enemy(44 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_piranha'));
+  enemies.push(new Enemy(48 * TILE_SIZE, 9.2 * TILE_SIZE, 'enemy_spike_ball'));
+  enemies.push(new Enemy(62 * TILE_SIZE, 8.5 * TILE_SIZE, 'enemy_ghost', true));
+
+  const finaleX = (LEVEL_WIDTH_TILES - 9) * TILE_SIZE;
+  props.push({ x: finaleX, y: 2.2 * TILE_SIZE, type: 'flag_vn', w: 55, h: 180, isGoal: true });
+  props.push({ x: finaleX + 75, y: 3.0 * TILE_SIZE, type: 'prop_portal', w: 60, h: 105 });
+  props.push({ x: finaleX + 35, y: 5.5 * TILE_SIZE, type: 'trophy', w: 42, h: 54 });
+  props.push({ x: finaleX + 75, y: 5.8 * TILE_SIZE, type: 'medal', w: 34, h: 42 });
+  props.push({ x: finaleX + 110, y: 5.8 * TILE_SIZE, type: 'crown', w: 40, h: 36 });
+}
+
